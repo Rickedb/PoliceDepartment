@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoliceDepartment</name>
+    </assembly>
+    <members>
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Get">
+            <summary>
+            Searches for a criminal code by its Id
+            </summary>
+            <returns>A single criminal code</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Search">
+            <summary>
+            Searches for a criminal code
+            </summary>
+            <returns>List of criminal codes</returns>
+        </member>
+    </members>
+</doc>

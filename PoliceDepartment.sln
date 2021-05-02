@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.218
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment", "src\PoliceDepartment\PoliceDepartment.csproj", "{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment.Domain", "src\PoliceDepartment.Domain\PoliceDepartment.Domain.csproj", "{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment.Data", "src\PoliceDepartment.Data\PoliceDepartment.Data.csproj", "{1F8A404F-1059-41A0-965E-67A6C8743479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliceDepartment.IoC", "src\PoliceDepartment.IoC\PoliceDepartment.IoC.csproj", "{8D4A887A-6612-414D-B65F-AD8D813EDA8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7B354B1-9E23-418F-9612-E727B34902CD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8A404F-1059-41A0-965E-67A6C8743479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8A404F-1059-41A0-965E-67A6C8743479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8A404F-1059-41A0-965E-67A6C8743479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8A404F-1059-41A0-965E-67A6C8743479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE15D7D2-B871-482D-A7F3-E2764056C911}
+	EndGlobalSection
+EndGlobal
