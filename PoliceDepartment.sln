@@ -9,14 +9,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment.Data", "src\PoliceDepartment.Data\PoliceDepartment.Data.csproj", "{1F8A404F-1059-41A0-965E-67A6C8743479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliceDepartment.IoC", "src\PoliceDepartment.IoC\PoliceDepartment.IoC.csproj", "{8D4A887A-6612-414D-B65F-AD8D813EDA8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliceDepartment.IoC", "src\PoliceDepartment.IoC\PoliceDepartment.IoC.csproj", "{8D4A887A-6612-414D-B65F-AD8D813EDA8B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7B354B1-9E23-418F-9612-E727B34902CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{F7B354B1-9E23-418F-9612-E727B34902CD}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliceDepartment.Auth", "src\PoliceDepartment.Auth\PoliceDepartment.Auth.csproj", "{506A2DF0-56D3-4140-8E43-A21AC5774C21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 -Services", "1 -Services", "{B742BDC2-8381-46E0-8B0E-721FD27D19FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{6577AC80-D728-4707-B206-20040105268B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{9480C317-9F72-493A-A1EF-F09BAC1D701E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,9 +48,20 @@ Global
 		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D4A887A-6612-414D-B65F-AD8D813EDA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{506A2DF0-56D3-4140-8E43-A21AC5774C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{506A2DF0-56D3-4140-8E43-A21AC5774C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{506A2DF0-56D3-4140-8E43-A21AC5774C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{506A2DF0-56D3-4140-8E43-A21AC5774C21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB82FD30-62E0-4B3B-A5A3-9616E6F8CC54} = {B742BDC2-8381-46E0-8B0E-721FD27D19FA}
+		{2F38B79A-E9BF-4B33-9A1B-EFA531CAF144} = {6577AC80-D728-4707-B206-20040105268B}
+		{1F8A404F-1059-41A0-965E-67A6C8743479} = {9480C317-9F72-493A-A1EF-F09BAC1D701E}
+		{8D4A887A-6612-414D-B65F-AD8D813EDA8B} = {9480C317-9F72-493A-A1EF-F09BAC1D701E}
+		{506A2DF0-56D3-4140-8E43-A21AC5774C21} = {9480C317-9F72-493A-A1EF-F09BAC1D701E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE15D7D2-B871-482D-A7F3-E2764056C911}

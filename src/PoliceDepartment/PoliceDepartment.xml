@@ -4,17 +4,31 @@
         <name>PoliceDepartment</name>
     </assembly>
     <members>
-        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Get">
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Get(System.Int32)">
             <summary>
             Searches for a criminal code by its Id
             </summary>
             <returns>A single criminal code</returns>
         </member>
-        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Search">
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Search(Microsoft.AspNet.OData.Query.ODataQueryOptions{PoliceDepartment.Domain.Entities.CriminalCode})">
             <summary>
             Searches for a criminal code
             </summary>
             <returns>List of criminal codes</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.UserController.Auth(PoliceDepartment.Domain.Entities.User)">
+            <summary>
+            Login to CriminalCode api
+            </summary>
+            <param name="user">User entity</param>
+            <returns>User with token</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.UserController.Create(PoliceDepartment.Domain.Entities.User)">
+            <summary>
+            Creates an User
+            </summary>
+            <param name="user">User entity</param>
+            <returns>User with token</returns>
         </member>
     </members>
 </doc>

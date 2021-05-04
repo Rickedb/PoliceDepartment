@@ -1,25 +1,23 @@
-﻿using Microsoft.VisualBasic;
-using PoliceDepartment.Domain.Interfaces;
+﻿using PoliceDepartment.Domain.Interfaces.Repositories;
+using PoliceDepartment.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PoliceDepartment.Domain.Services
 {
     public class DatabaseService<TEntity> : IDatabaseService<TEntity> where TEntity : class
     {
-        protected readonly IRepository<TEntity> _repository;
+        protected readonly IRepository<TEntity> Repository;
 
         public DatabaseService(IRepository<TEntity> repository)
         {
-            _repository = repository;
+            Repository = repository;
         }
 
-        public virtual Task<TEntity> AddAsync(TEntity entity) => _repository.AddAsync(entity);
+        public virtual Task<TEntity> AddAsync(TEntity entity) => Repository.AddAsync(entity);
 
         public virtual async Task<IEnumerable<TEntity>> AddAsync(IEnumerable<TEntity> entities)
         {
@@ -39,11 +37,11 @@ namespace PoliceDepartment.Domain.Services
             return entity;
         }
 
-        public virtual Task DeleteAsync(TEntity entity) => _repository.DeleteAsync(entity);
+        public virtual Task DeleteAsync(TEntity entity) => Repository.DeleteAsync(entity);
 
         public virtual async Task DeleteAsync(object id)
         {
-            var entity = await _repository.GetAsync(id);
+            var entity = await Repository.GetAsync(id);
             await DeleteAsync(entity);
         }
 
@@ -57,31 +55,31 @@ namespace PoliceDepartment.Domain.Services
 
         public virtual async Task<bool> DeleteAndSaveAsync(TEntity entity)
         {
-            await _repository.DeleteAsync(entity);
+            await Repository.DeleteAsync(entity);
             return await SaveChangesAsync() > 0;
         }
 
         public virtual async Task<bool> DeleteAndSaveAsync(object id)
         {
-            var entity = await _repository.GetAsync(id);
+            var entity = await Repository.GetAsync(id);
             return await DeleteAndSaveAsync(entity);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _repository.GetAllAsyncNoTracking();
+            return await Repository.GetAllAsyncNoTracking();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return await _repository.GetAllAsyncNoTracking(predicate);
+            return await Repository.GetAllAsyncNoTracking(predicate);
         }
 
-        public virtual Task<TEntity> GetAsync(object id) => _repository.GetAsync(id);
+        public virtual ValueTask<TEntity> GetAsync(object id) => Repository.GetAsync(id);
 
-        public Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate) => _repository.GetAsNoTrackingAsync(predicate);
+        public Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate) => Repository.GetAsNoTrackingAsync(predicate);
 
-        public virtual Task<TEntity> UpdateAsync(TEntity entity) => _repository.UpdateAsync(entity);
+        public virtual Task<TEntity> UpdateAsync(TEntity entity) => Repository.UpdateAsync(entity);
 
         public virtual async Task<TEntity> UpdateAndSaveAsync(TEntity entity)
         {
@@ -90,13 +88,13 @@ namespace PoliceDepartment.Domain.Services
             return entity;
         }
 
-        public virtual Task<int> SaveChangesAsync() => _repository.SaveChangesAsync();
+        public virtual Task<int> SaveChangesAsync() => Repository.SaveChangesAsync();
 
         public void Dispose()
         {
-            if (_repository != null)
+            if (Repository != null)
             {
-                _repository.Dispose();
+                Repository.Dispose();
             }
         }
     }

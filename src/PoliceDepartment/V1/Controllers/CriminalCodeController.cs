@@ -1,24 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PoliceDepartment.Domain.Entities;
+using PoliceDepartment.Domain.Interfaces.Services;
+using PoliceDepartment.Domain.ValuedObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace PoliceDepartment.V1.Controllers
 {
+    
     [ApiController]
-    [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/[controller]")]
+    [Route("v1/criminal-code")]
 
-    public class CriminalCodeController : ControllerBase
+    public class CriminalCodeController : AuthorizedController
     {
-        private readonly ILogger<CriminalCodeController> _logger;
+        private readonly IQueryableDatabaseService<CriminalCode> _service;
 
-        public CriminalCodeController(ILogger<CriminalCodeController> logger)
+        public CriminalCodeController(IQueryableDatabaseService<CriminalCode> service)
         {
-            _logger = logger;
+            _service = service;
         }
 
         /// <summary>
@@ -26,9 +29,20 @@ namespace PoliceDepartment.V1.Controllers
         /// </summary>
         /// <returns>A single criminal code</returns>
         [HttpGet("{id}")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get(int id)
         {
-            return Ok();
+            if (id < 1)
+            {
+                return BadRequest(id);
+            }
+
+            var entity = await _service.GetAsync(id);
+            if(entity == null)
+            {
+                return NotFound(id);
+            }
+
+            return Ok(entity);
         }
 
         /// <summary>
@@ -36,31 +50,37 @@ namespace PoliceDepartment.V1.Controllers
         /// </summary>
         /// <returns>List of criminal codes</returns>
         [HttpGet("search")]
-        public IActionResult Search()
+        public IActionResult Search(ODataQueryOptions<CriminalCode> options)
         {
-            return Ok();
+            var entities = _service.Search(options.ApplyTo);
+            return Ok(entities);
         }
 
         [HttpPost]
-        [HttpPost("add")]
-        public IActionResult Add(CriminalCode criminalCode)
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(CriminalCode entity)
         {
-            return Ok();
+            entity.CreateUserId = entity.UpdateUserId = CurrentUser.Id;
+            entity = await _service.AddAndSaveAsync(entity);
+            return Ok(entity);
         }
 
         [HttpPatch()]
         [HttpPatch("edit")]
         [HttpPost("edit")]
-        public IActionResult Edit(CriminalCode criminalCode)
+        public async Task<IActionResult> Edit(CriminalCode entity)
         {
-            return Ok();
+            entity.UpdateUserId = CurrentUser.Id;
+            entity = await _service.UpdateAndSaveAsync(entity);
+            return Ok(entity);
         }
 
         [HttpDelete()]
         [HttpDelete("delete")]
         [HttpPost("delete")]
-        public IActionResult Delete(CriminalCode criminalCode)
+        public async Task<IActionResult> Delete(CriminalCode entity)
         {
+            await _service.DeleteAndSaveAsync(entity);
             return Ok();
         }
     }

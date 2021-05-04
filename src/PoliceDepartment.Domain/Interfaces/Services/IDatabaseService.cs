@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace PoliceDepartment.Domain.Interfaces
+namespace PoliceDepartment.Domain.Interfaces.Services
 {
     public interface IDatabaseService<TEntity> : IDisposable where TEntity : class
     {
-        Task<TEntity> GetAsync(object id);
+        ValueTask<TEntity> GetAsync(object id);
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate);
