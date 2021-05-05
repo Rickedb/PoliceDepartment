@@ -6,8 +6,9 @@
     <members>
         <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Get(System.Int32)">
             <summary>
-            Searches for a criminal code by its Id
+            Searches for a criminal code
             </summary>
+            <param name="id">Criminal code Id</param>
             <returns>A single criminal code</returns>
         </member>
         <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Search(Microsoft.AspNet.OData.Query.ODataQueryOptions{PoliceDepartment.Domain.Entities.CriminalCode})">
@@ -15,6 +16,27 @@
             Searches for a criminal code
             </summary>
             <returns>List of criminal codes</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Create(PoliceDepartment.Domain.Entities.CriminalCode)">
+            <summary>
+            Creates a brand new Criminal Code
+            </summary>
+            <param name="entity">Criminal Code entity</param>
+            <returns>A new Criminal Code entity</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Edit(System.Int32,PoliceDepartment.Domain.Entities.CriminalCode)">
+            <summary>
+            Updates an existant criminal code
+            </summary>
+            <param name="id">Id of criminal code to update</param>
+            <param name="entity">Criminal code with updates</param>
+            <returns>The updated criminal code</returns>
+        </member>
+        <member name="M:PoliceDepartment.V1.Controllers.CriminalCodeController.Delete(System.Int32)">
+            <summary>
+            Deletes a single criminal code
+            </summary>
+            <param name="id">Criminal code id</param>
         </member>
         <member name="M:PoliceDepartment.V1.Controllers.UserController.Auth(PoliceDepartment.Domain.Entities.User)">
             <summary>
@@ -25,7 +47,7 @@
         </member>
         <member name="M:PoliceDepartment.V1.Controllers.UserController.Create(PoliceDepartment.Domain.Entities.User)">
             <summary>
-            Creates an User
+            Creates a new user (Used only for testing purposes)
             </summary>
             <param name="user">User entity</param>
             <returns>User with token</returns>

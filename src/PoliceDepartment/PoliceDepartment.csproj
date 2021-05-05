@@ -30,5 +30,11 @@
     <ProjectReference Include="..\PoliceDepartment.IoC\PoliceDepartment.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="PoliceDepartment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FluentValidation.AspNetCore;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoliceDepartment.Domain.Entities;
 using PoliceDepartment.Domain.Interfaces.Services;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace PoliceDepartment.V1.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("v1/[controller]")]
     public class UserController : ControllerBase
@@ -27,7 +30,10 @@ namespace PoliceDepartment.V1.Controllers
         /// <returns>User with token</returns>
         [AllowAnonymous]
         [HttpPost("auth")]
-        public async Task<IActionResult> Auth(User user)
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.InternalServerError)]
+        public async Task<IActionResult> Auth([CustomizeValidator(RuleSet = "Authenticate")] User user)
         {
             var authenticatedUser = await _authenticationService.Authenticate(user);
             if(authenticatedUser == null)
@@ -39,11 +45,11 @@ namespace PoliceDepartment.V1.Controllers
         }
 
         /// <summary>
-        /// Creates an User
+        /// Creates a new user (Used only for testing purposes)
         /// </summary>
         /// <param name="user">User entity</param>
         /// <returns>User with token</returns>
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
             user = await _userService.AddAndSaveAsync(user);
