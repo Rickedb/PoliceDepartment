@@ -7,6 +7,7 @@ API referente ao teste da **Cidade Alta Season 2**.
 O projeto foi desenvolvido em .Net Core 3.1 com arquitetura em camadas, constando as seguintes camadas:
 
 |Camada		| Função|
+|-----------|-------|
 |Service/Api| Camada de API com toda a interface entre o consumidor e as funcionalidades|
 |Domain		| Camada de domínio com toda a regra de negócio da aplicação|
 |Auth		| Camada com todas as regras de autenticação|
